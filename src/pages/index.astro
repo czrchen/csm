@@ -1,0 +1,275 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const products = [
+  { name: "Goat Milk Powder", sub: "Susu Kambing", desc: "Our signature — wholesome instant goat milk." },
+  { name: "3-in-1 Coffee", sub: "Kopi", desc: "Smooth premix coffee with creamer and sugar." },
+  { name: "Chocolate Drink", sub: "Coklat", desc: "Rich malted chocolate beverage." },
+  { name: "Tea Premix", sub: "Teh", desc: "Fragrant 3-in-1 tea premix." },
+];
+
+const services = [
+  { img: "/images/process-manufacturing.png", name: "OEM Manufacturing", desc: "We formulate, blend and sachet-pack goat milk, coffee, chocolate, tea and cow's milk under your own brand." },
+  { img: "/images/process-training.png", name: "Entrepreneur Guidance", desc: "Advisory and product management support — we've helped launch 100+ successful entrepreneurs." },
+  { img: "/images/process-warehouse.png", name: "Supply & Fulfilment", desc: "Reliable production capacity and stock handling so your brand is always ready to ship." },
+];
+
+const certs = [
+  { img: "/images/certs/halal.png", name: "Halal MS1500" },
+  { img: "/images/certs/mesti.png", name: "MeSTI" },
+  { img: "/images/certs/buatan-malaysia.png", name: "Buatan Malaysia" },
+];
+---
+
+<Layout path="/">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-hero-stagger>
+        <span class="eyebrow">Goat Milk OEM Manufacturer · Seremban</span>
+        <h1>Malaysia's <span class="accent">finest goat milk</span>, your brand.</h1>
+        <p class="hero-lead">
+          Cipta Success Marketing (CSM) produces premium goat milk and beverage premixes — and as
+          an OEM partner, we help entrepreneurs launch their own brand from recipe to ready-to-ship.
+        </p>
+        <div class="hero-actions">
+          <a href="/products" class="btn btn-primary">Our products
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/contact" class="btn btn-ghost">Start an OEM project</a>
+        </div>
+        <p class="hero-trust">Since <strong>2005</strong> · <strong>100+ entrepreneurs</strong> launched with CSM.</p>
+      </div>
+
+      <div class="hero-art" data-hero-art>
+        <div class="hero-img-main">
+          <img src="/images/banners/banner1.jpg" alt="CSM goat farming" width="620" height="520" />
+        </div>
+        <div class="hero-badge">
+          <span class="mark">C</span>
+          <span>Susu Kambing<br><strong>Terbaik</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Susu Kambing</span><i></i><span>Goat Milk</span><i></i><span>Kopi 3-in-1</span><i></i>
+      <span>Coklat</span><i></i><span>Teh</span><i></i><span>Susu Lembu</span><i></i><span>OEM</span><i></i>
+      <span>Susu Kambing</span><i></i><span>Goat Milk</span><i></i><span>Kopi 3-in-1</span><i></i>
+      <span>Coklat</span><i></i><span>Teh</span><i></i><span>Susu Lembu</span><i></i><span>OEM</span><i></i>
+    </div>
+  </div>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="featured">
+    <div class="container">
+      <header class="sec-head row" data-reveal>
+        <div>
+          <span class="eyebrow">Our products</span>
+          <h2 class="section-title">Goat milk &amp; beverage premixes</h2>
+        </div>
+        <a href="/products" class="btn btn-ghost">All products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </header>
+
+      <div class="prod-grid" data-reveal-group>
+        {products.map((p) => (
+          <a href="/products" class="prod-card">
+            <div class="prod-media"><div class="prod-ph"><span>{p.name}</span></div></div>
+            <div class="prod-info">
+              <span class="prod-cat">{p.sub}</span>
+              <h3>{p.name}</h3>
+              <p>{p.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OEM SERVICES ============ -->
+  <section class="services">
+    <div class="container">
+      <header class="sec-head center" data-reveal>
+        <span class="eyebrow center">What we do</span>
+        <h2 class="section-title">Your OEM partner, end to end</h2>
+      </header>
+      <div class="svc-grid" data-reveal-group>
+        {services.map((s) => (
+          <article class="svc-card">
+            <div class="svc-media"><img src={s.img} alt={s.name} loading="lazy" /></div>
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section class="quality">
+    <div class="container quality-grid">
+      <div class="quality-media" data-reveal>
+        <div class="quality-frame">
+          <img src="/images/building.jpg" alt="CSM headquarters in Seremban" width="560" height="600" loading="lazy" data-parallax="-26" />
+        </div>
+        <div class="quality-stat" data-parallax="22">
+          <span class="num"><span data-count="100">0</span>+</span>
+          <span class="lbl">entrepreneurs<br>launched with CSM</span>
+        </div>
+      </div>
+      <div class="quality-copy" data-reveal>
+        <span class="eyebrow">Why CSM</span>
+        <h2 class="section-title">From a coffee distributor to a trusted OEM</h2>
+        <p class="section-lead">Founded in 2005, CSM grew from distributing coffee into manufacturing goat milk and beverage premixes under the Tok' Ali brand — and helping others build brands of their own.</p>
+        <ul class="quality-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Halal &amp; MeSTI certified</strong><span>Made to recognised Malaysian food-safety standards.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Full OEM service</strong><span>Recipe, blending, sachet packing and your branding.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Made in Malaysia</strong><span>Produced at our facility in Seremban, Negeri Sembilan.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="certs ribbon ribbon-cream">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="ribbon-inner">
+      <div class="container">
+        <span class="eyebrow center certs-eyebrow">Certified &amp; trusted</span>
+      </div>
+      <div class="cert-belt">
+        <div class="cert-belt-track">
+          {[...certs, ...certs, ...certs, ...certs].map((c) => (
+            <div class="cert-plate"><img src={c.img} alt={c.name} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="cta-box" data-reveal>
+        <div class="cta-copy">
+          <h2>Launch your own goat milk brand.</h2>
+          <p>Tell us your product idea — CSM will formulate, pack and guide you from concept to shelf.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .accent { color: var(--red); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 72px 0 90px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .hero-copy h1 { font-size: clamp(2.9rem, 6vw, 4.6rem); margin: 22px 0 22px; letter-spacing: -0.04em; }
+  .hero-lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 510px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 26px; }
+  .hero-trust { font-size: .95rem; color: var(--ink-soft); }
+  .hero-trust strong { color: var(--ink); font-weight: 700; }
+
+  .hero-art { position: relative; }
+  .hero-img-main { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 6 / 5; }
+  .hero-img-main img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-badge { position: absolute; bottom: -22px; left: -18px; display: flex; align-items: center; gap: 11px; background: #fff; color: var(--ink); padding: 12px 16px; border-radius: 14px; box-shadow: var(--shadow-md); }
+  .hero-badge .mark { display: grid; place-items: center; width: 40px; height: 40px; background: var(--red); color: var(--gold); border-radius: 10px; font-family: var(--font-display); font-weight: 800; }
+  .hero-badge span:not(.mark) { font-family: var(--font-display); font-size: .72rem; line-height: 1.15; letter-spacing: .04em; color: var(--ink-soft); }
+  .hero-badge strong { color: var(--red); font-size: .92rem; }
+
+  /* ---------- TICKER ---------- */
+  .ticker { background: var(--navy); overflow: hidden; padding: 15px 0; }
+  .ticker-track { display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content; animation: scroll 32s linear infinite; }
+  .ticker-track span { font-family: var(--font-display); font-weight: 600; font-size: .92rem; text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.92); }
+  .ticker-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- shared section header ---------- */
+  .featured, .services { padding: 100px 0 0; }
+  .sec-head { margin-bottom: 48px; }
+  .sec-head.row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+
+  /* ---------- PRODUCTS ---------- */
+  .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .prod-card { display: block; }
+  .prod-media { aspect-ratio: 4/3.4; overflow: hidden; border-radius: 24px; box-shadow: 0 0 0 rgba(26,36,28,0); transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease; }
+  .prod-ph { width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 18px; background: linear-gradient(135deg, var(--red), var(--navy)); }
+  .prod-ph span { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+  .prod-card:hover .prod-media { transform: translateY(-10px); box-shadow: 0 24px 40px rgba(0,101,46,.18); }
+  .prod-info { padding: 16px 4px 0; }
+  .prod-cat { font-size: .82rem; font-weight: 600; color: var(--gold); }
+  .prod-info h3 { font-size: 1.05rem; margin-top: 4px; letter-spacing: -0.02em; transition: color .25s ease; }
+  .prod-info p { color: var(--ink-soft); font-size: .9rem; margin-top: 4px; line-height: 1.45; }
+  .prod-card:hover .prod-info h3 { color: var(--red); }
+
+  /* ---------- SERVICES ---------- */
+  .sec-head.center { text-align: center; }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  .svc-card { text-align: center; }
+  .svc-media { width: 180px; height: 180px; margin: 0 auto 22px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .svc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .svc-card:hover .svc-media img { transform: scale(1.06); }
+  .svc-card h3 { font-size: 1.25rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .svc-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.55; max-width: 320px; margin: 0 auto; }
+
+  /* ---------- WHY ---------- */
+  .quality { padding: 110px 0 0; }
+  .quality-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  .quality-media { position: relative; }
+  .quality-frame { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 14/15; box-shadow: var(--shadow-md); }
+  .quality-frame img { width: 100%; height: 114%; object-fit: cover; object-position: center; }
+  .quality-stat { position: absolute; right: -22px; bottom: 32px; z-index: 2; background: var(--red); color: #fff; border-radius: 16px; padding: 18px 22px; box-shadow: 0 18px 40px rgba(0,101,46,.3); display: flex; align-items: center; gap: 12px; }
+  .quality-stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; color: var(--gold); }
+  .quality-stat .lbl { font-size: .82rem; line-height: 1.25; opacity: .95; }
+  .quality-copy .section-title { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+  .quality-list { margin-top: 28px; display: grid; gap: 16px; }
+  .quality-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .quality-list svg { width: 22px; height: 22px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .quality-list strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 2px; }
+  .quality-list span { color: var(--ink-soft); font-size: .96rem; }
+
+  /* ---------- CERTIFICATIONS (conveyor) ---------- */
+  .certs-eyebrow { display: flex; justify-content: center; margin-bottom: 40px; }
+  .cert-belt { overflow: hidden; padding: 26px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
+  .cert-belt-track { display: flex; gap: 26px; width: max-content; animation: beltScroll 30s linear infinite; }
+  .cert-belt:hover .cert-belt-track { animation-play-state: paused; }
+  .cert-plate { flex: 0 0 auto; width: 172px; height: 124px; background: #fff; border-radius: 20px; box-shadow: var(--shadow-sm); display: grid; place-items: center; padding: 24px; transition: transform .25s ease, box-shadow .25s ease; }
+  .cert-plate:hover { transform: translateY(-7px); box-shadow: 0 14px 28px rgba(26,36,28,.14); }
+  .cert-plate img { max-height: 72px; max-width: 100%; width: auto; object-fit: contain; }
+  @keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .cert-belt-track { animation: none; justify-content: center; } }
+
+  /* ---------- CTA ---------- */
+  .cta-box { display: flex; justify-content: space-between; align-items: center; gap: 36px; flex-wrap: wrap; }
+  .cta-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.7rem); margin-bottom: 12px; }
+  .cta-box p { color: rgba(255,255,255,.82); max-width: 460px; }
+  .cta-box .btn { flex-shrink: 0; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 70px; }
+    .hero-art { max-width: 520px; }
+    .quality-grid { grid-template-columns: 1fr; gap: 40px; }
+    .quality-media { max-width: 460px; }
+    .prod-grid { grid-template-columns: 1fr 1fr; }
+    .svc-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 560px) {
+    .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }
+</style>

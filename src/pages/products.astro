@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const categories = [
+  {
+    name: "Goat Milk",
+    accent: "var(--red)",
+    items: [
+      { ph: "Goat Milk Powder", name: "Goat Milk Powder", desc: "Wholesome instant goat milk — our signature product." },
+      { ph: "Goat Milk + Honey", name: "Goat Milk with Honey", desc: "Goat milk blended with natural honey." },
+      { ph: "Goat Milk + Dates", name: "Goat Milk with Dates", desc: "Goat milk enriched with dates (kurma)." },
+    ],
+  },
+  {
+    name: "Coffee & Chocolate",
+    accent: "var(--navy)",
+    items: [
+      { ph: "3-in-1 Coffee", name: "3-in-1 Coffee", desc: "Instant premix coffee with creamer and sugar." },
+      { ph: "White Coffee", name: "White Coffee", desc: "Smooth, creamy white coffee premix." },
+      { ph: "Chocolate Drink", name: "Chocolate Drink", desc: "Rich malted chocolate beverage." },
+    ],
+  },
+  {
+    name: "Tea, Milk & OEM",
+    accent: "var(--gold)",
+    items: [
+      { ph: "Tea Premix", name: "Tea Premix", desc: "Fragrant 3-in-1 tea premix." },
+      { ph: "Cow's Milk", name: "Cow's Milk Powder", desc: "Instant full-cream cow's milk." },
+      { ph: "Your Brand", name: "Custom OEM Blend", desc: "Your recipe and brand, formulated and packed by CSM." },
+    ],
+  },
+];
+---
+
+<Layout path="/products" title="Products — Cipta Success Marketing (CSM)">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Our products</span>
+      <h1 class="page-title" data-reveal>Goat milk &amp; beverage premixes</h1>
+      <p class="page-lead" data-reveal>
+        Goat milk, coffee, chocolate, tea and cow's milk — all available as instant premixes, under
+        the Tok' Ali brand or your own OEM label. Don't see your product? We'll formulate it.
+      </p>
+    </div>
+  </section>
+
+  {categories.map((cat) => (
+    <section class="cat" style={`--c:${cat.accent}`}>
+      <div class="container">
+        <header class="cat-head" data-reveal>
+          <span class="cat-bar"></span>
+          <h2>{cat.name}</h2>
+          <span class="cat-count">{cat.items.length} products</span>
+        </header>
+        <div class="cat-grid" data-reveal-group>
+          {cat.items.map((it) => (
+            <article class="pcard">
+              <div class="pcard-media"><div class="pcard-ph"><span>{it.ph}</span></div></div>
+              <div class="pcard-body">
+                <h3>{it.name}</h3>
+                <p>{it.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="oem ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="oem-box" data-reveal>
+        <div class="oem-copy">
+          <h2>OEM &amp; private label</h2>
+          <p>From recipe development to blending, sachet packing and your branded carton — CSM manufactures halal goat milk and beverage premixes to your spec, and guides you all the way to market.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Start a project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding: 64px 0 50px; }
+  .page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 18px 0 18px; letter-spacing: -0.04em; }
+  .page-lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 620px; line-height: 1.65; }
+
+  .cat { padding: 50px 0 0; }
+  .cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .cat-bar { width: 32px; height: 6px; border-radius: 6px; background: var(--c); }
+  .cat-head h2 { font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -0.03em; }
+  .cat-count { margin-left: auto; font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  .pcard { display: block; }
+  .pcard-media { aspect-ratio: 4/3.4; overflow: hidden; border-radius: 26px; background: var(--cream); transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease; }
+  .pcard-ph { width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 18px; background: linear-gradient(135deg, var(--red), var(--navy)); }
+  .pcard-ph span { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; }
+  .pcard:hover .pcard-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(0,101,46,.2); }
+  .pcard-body { padding: 18px 6px 0; }
+  .pcard-body h3 { font-size: 1.08rem; letter-spacing: -0.02em; margin-bottom: 4px; transition: color .25s ease; }
+  .pcard:hover .pcard-body h3 { color: var(--red); }
+  .pcard-body p { color: var(--ink-soft); font-size: .9rem; line-height: 1.5; }
+
+  .oem-box { display: flex; justify-content: space-between; align-items: center; gap: 36px; flex-wrap: wrap; }
+  .oem-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 12px; }
+  .oem-box p { color: rgba(255,255,255,.85); max-width: 520px; }
+  .oem-box .btn { flex-shrink: 0; }
+
+  @media (max-width: 900px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) {
+    .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .oem-box { padding: 40px 30px; }
+  }
+</style>
