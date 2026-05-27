@@ -4,18 +4,18 @@
    =========================================================== */
 
 :root {
-  /* Brand */
-  --navy:       #013D1C;   /* deep green (dark sections) */
-  --navy-2:     #015024;
-  --red:        #00652E;   /* CSM green — primary CTA/accent */
-  --red-deep:   #00501F;
-  --gold:       #F2C200;   /* CSM yellow accent */
+  /* Brand — vibrant green + yellow (Adabi-style colourful) */
+  --navy:       #014A22;   /* deep green (dark sections) */
+  --navy-2:     #016B30;
+  --red:        #009A43;   /* vivid grass green — primary CTA/accent */
+  --red-deep:   #007A34;
+  --gold:       #FFC400;   /* vivid yellow accent */
 
   /* Surface + text */
   --ink:        #1A241C;   /* near-black green-grey text */
   --ink-soft:   #5C6A5E;
-  --paper:      #FBFDFA;   /* page background */
-  --cream:      #EAF3E9;   /* alt section (soft green) */
+  --paper:      #FBFDF6;   /* warm page background */
+  --cream:      #FFF6D6;   /* warm yellow cream alt section */
   --white:      #FFFFFF;
   --line:       rgba(26, 36, 28, 0.10);
   --line-strong:rgba(26, 36, 28, 0.16);

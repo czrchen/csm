@@ -6,8 +6,7 @@ const year = new Date().getFullYear();
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="/" class="brand">
-        <span class="brand-mark">C</span>
-        <span class="brand-text">Cipta Success</span>
+        <img class="brand-logo" src="/images/logo-full.png" alt="Cipta Success Marketing" height="46" />
       </a>
       <p>Goat milk &amp; beverage OEM manufacturer in Seremban since 2005 — your recipe, your brand, on the Tok' Ali line.</p>
       <div class="socials">
@@ -60,9 +59,8 @@ const year = new Date().getFullYear();
     grid-template-columns: 1.7fr 1fr 1fr 1.4fr;
     gap: 40px;
   }
-  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-  .brand-mark { display: grid; place-items: center; width: 50px; height: 50px; background: var(--red); color: var(--gold); border-radius: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; }
-  .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: #fff; letter-spacing: -0.02em; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .brand-logo { height: 46px; width: auto; object-fit: contain; }
   .footer-brand p { color: #9FB39A; max-width: 320px; font-size: .95rem; line-height: 1.6; }
 
   .socials { display: flex; gap: 18px; margin-top: 22px; }
