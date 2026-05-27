@@ -274,38 +274,3 @@ const certs = [
   }
 </style>
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
-  function burst(host: HTMLElement) {
-    const cs = getComputedStyle(document.documentElement);
-    const pick = (n: string) => cs.getPropertyValue(n).trim();
-    const colors = [pick("--red"), pick("--gold"), pick("--navy"), "#ffffff", "#FF5C8A", "#19C3FF", "#FFD200"].filter(Boolean);
-    const overlay = document.createElement("div");
-    overlay.style.cssText = "position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:6;";
-    if (getComputedStyle(host).position === "static") host.style.position = "relative";
-    host.appendChild(overlay);
-    const W = host.offsetWidth, H = host.offsetHeight, y0 = H * 0.4;
-    for (const dir of [1, -1]) {
-      const x0 = dir === 1 ? 0 : W;
-      for (let i = 0; i < 28; i++) {
-        const p = document.createElement("span");
-        const s = 7 + Math.random() * 9;
-        p.style.cssText = `position:absolute;left:${x0}px;top:${y0}px;width:${s}px;height:${s * 0.55}px;background:${colors[i % colors.length]};border-radius:2px;opacity:0;will-change:transform;`;
-        overlay.appendChild(p);
-        gsap.timeline()
-          .set(p, { opacity: 1, scale: 0.4 })
-          .to(p, { x: dir * (140 + Math.random() * 600), y: -(70 + Math.random() * 250), rotation: Math.random() * 720 - 360, scale: 1, duration: 0.45 + Math.random() * 0.35, ease: "power3.out" })
-          .to(p, { y: "+=" + (300 + Math.random() * 560), rotation: "+=" + (Math.random() * 360), opacity: 0, duration: 0.9 + Math.random() * 0.7, ease: "power1.in" }, "-=0.05");
-      }
-    }
-    gsap.delayedCall(3.4, () => overlay.remove());
-  }
-
-  const host = document.querySelector<HTMLElement>("[data-firecracker]");
-  if (host && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    ScrollTrigger.create({ trigger: host, start: "top 72%", once: true, onEnter: () => burst(host) });
-  }
-</script>
