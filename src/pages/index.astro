@@ -28,7 +28,7 @@ const certs = [
     <div class="container hero-grid">
       <div class="hero-copy" data-hero-stagger>
         <span class="eyebrow">Goat Milk OEM Manufacturer · Seremban</span>
-        <h1>Malaysia's <span class="accent">finest goat milk</span>, your brand.</h1>
+        <h1 data-split>Malaysia's finest goat milk, your brand.</h1>
         <p class="hero-lead">
           Cipta Success Marketing (CSM) produces premium goat milk and beverage premixes — and as
           an OEM partner, we help entrepreneurs launch their own brand from recipe to ready-to-ship.
@@ -127,7 +127,7 @@ const certs = [
         <span class="eyebrow">Why CSM</span>
         <h2 class="section-title">From a coffee distributor to a trusted OEM</h2>
         <p class="section-lead">Founded in 2005, CSM grew from distributing coffee into manufacturing goat milk and beverage premixes under the Tok' Ali brand — and helping others build brands of their own.</p>
-        <ul class="quality-list">
+        <ul class="quality-list" data-scrub>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Halal &amp; MeSTI certified</strong><span>Made to recognised Malaysian food-safety standards.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Full OEM service</strong><span>Recipe, blending, sachet packing and your branding.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Made in Malaysia</strong><span>Produced at our facility in Seremban, Negeri Sembilan.</span></div></li>
@@ -150,23 +150,6 @@ const certs = [
             <div class="cert-plate"><img src={c.img} alt={c.name} loading="lazy" /></div>
           ))}
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CTA ============ -->
-  <section class="cta ribbon">
-    <Wave side="top" />
-    <Wave side="bottom" />
-    <div class="container ribbon-inner">
-      <div class="cta-box" data-reveal>
-        <div class="cta-copy">
-          <h2>Launch your own goat milk brand.</h2>
-          <p>Tell us your product idea — CSM will formulate, pack and guide you from concept to shelf.</p>
-        </div>
-        <a href="/contact" class="btn btn-primary">Get in touch
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </div>
     </div>
   </section>

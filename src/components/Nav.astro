@@ -115,6 +115,16 @@ const links = [
     .nav-toggle { display: flex; }
     .nav-mobile { display: flex; }
   }
+
+  /* Solid brand-colour nav — bookends the page with the footer */
+  .nav { background: var(--navy); backdrop-filter: none; }
+  .nav.scrolled { border-bottom-color: rgba(255,255,255,.14); }
+  .brand-text { color: #fff; }
+  .nav-links a { color: rgba(255,255,255,.78); }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-toggle span { background: #fff; }
+  .nav-mobile a { color: #fff; border-bottom-color: rgba(255,255,255,.12); }
+  .brand-pill { background: #fff; }
 </style>
 
 <script>
